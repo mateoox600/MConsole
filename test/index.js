@@ -1,7 +1,8 @@
-const { ProgressBar } = require('../build');
+const { clear, ProgressBar } = require('../build');
 
 const progressBar = new ProgressBar(120, 10, '[{progressBar}] {progress}/{max}');
 
+clear();
 progressBar.start();
 
 const interval = setInterval(() => {

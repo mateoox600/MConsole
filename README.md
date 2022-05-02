@@ -4,6 +4,7 @@ Npm package for console utilities.
 
 ---
 ## Features
+ - Utility functions
  - Progress bar
 ---
 ## Installation
@@ -32,6 +33,8 @@ const interval = setInterval(() => {
 ```
 ---
 ## Docs
+### `clear()`
+ - clear the console
 ### ProgressBar
  - Takes three args:
     - `max` the max value of the progressBar

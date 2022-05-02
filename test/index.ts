@@ -1,7 +1,8 @@
-import { ProgressBar } from '../src';
+import { clear, ProgressBar } from '../src';
 
 const progressBar = new ProgressBar(120, 10, '[{progressBar}] {progress}/{max}');
 
+clear();
 progressBar.start();
 
 const interval = setInterval(() => {

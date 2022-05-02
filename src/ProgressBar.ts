@@ -30,10 +30,10 @@ export class ProgressBar {
         this.print();
     }
 
-    private print() {
+    private print(bypassFinished = false) {
         if(!this.started) return;
         const percent = Math.max(Math.min(Math.round(100 * (this.progress / this.max)), 100), 0);
-        if(this.finished) return this.stop();
+        if(this.finished && !bypassFinished) return this.stop();
         const progressBar = '█'.repeat(percent) + '-'.repeat(100 - percent);
         const bar = this.template
             .replace(/\{progress\}/gm, this.progress.toString())
@@ -45,6 +45,7 @@ export class ProgressBar {
     }
 
     public stop() {
+        this.print(true);
         process.stdout.write('\x1B[?25h');
         process.stdout.write('\x1B8');
         process.stdout.write('\n');
